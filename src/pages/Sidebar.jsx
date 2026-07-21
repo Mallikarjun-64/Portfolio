@@ -31,7 +31,7 @@ function Sidebar() {
             Mallikarjun Kadagoudra
           </h1>
 
-          <p className="title">Software Engineer</p>
+          <p className="title">BCA Student</p>
         </div>
 
         <button
