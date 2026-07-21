@@ -18,7 +18,7 @@ function About() {
 
       <section className="about-text">
         <p>
-          Software Engineer with experience in web, app development and
+          BCA Student with experience in web, app development and
           Cybersecurity, skilled in building scalable and secured solutions and
           solving real-world problems. Passionate about learning new technologies
           and delivering impactful results. Multiple-time national-level
