@@ -26,14 +26,18 @@ function ResumeButton() {
         variant="outlined"
         size="large"
         sx={{
-          color: "white",
+          color: "#3B82F6",
           width: { xs: "100%", md: "15rem" },
           margin: "0 0 2rem 0",
           fontWeight: "bold",
           textTransform: "capitalize",
           borderRadius: "1rem",
           cursor: "pointer",
-          border: "1px solid #FFDB70",
+          border: "1px solid #3B82F6",
+          "&:hover": {
+            backgroundColor: "#EFF6FF",
+            borderColor: "#2563EB",
+          }
         }}
       >
         View Resume
@@ -47,15 +51,16 @@ function ResumeButton() {
         PaperProps={{
           style: {
             borderRadius: "1.2rem",
-            background: "rgba(10, 10, 10, 0.92)",
+            background: "rgba(255, 255, 255, 0.95)",
             backdropFilter: "blur(20px)",
             overflow: "hidden",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
           },
         }}
         BackdropProps={{
           style: {
-            backdropFilter: "blur(6px)",
-            backgroundColor: "rgba(0,0,0,0.5)",
+            backdropFilter: "blur(4px)",
+            backgroundColor: "rgba(255,255,255,0.4)",
           },
         }}
       >
@@ -69,45 +74,45 @@ function ResumeButton() {
             borderBottom: "1px solid rgba(255,255,255,0.1)",
           }}
         >
-          <Typography
-            sx={{
-              color: "white",
-              fontWeight: "bold",
-              fontFamily: "poppins",
-              fontSize: "1.2rem",
-            }}
-          >
-            Resume
-          </Typography>
-          <Box sx={{ display: "flex", gap: 0.5 }}>
-            <Tooltip title="Download">
-              <IconButton
-                component="a"
-                href={DOWNLOAD_URL}
-                download="Mallikarjun_Kadagoudra_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ color: "#FFDB70" }}
-              >
+            <Typography
+              sx={{
+                color: "#1E293B",
+                fontWeight: "bold",
+                fontFamily: "poppins",
+                fontSize: "1.2rem",
+              }}
+            >
+              Resume
+            </Typography>
+            <Box sx={{ display: "flex", gap: 0.5 }}>
+              <Tooltip title="Download">
+                <IconButton
+                  component="a"
+                  href={DOWNLOAD_URL}
+                  download="Mallikarjun_Kadagoudra_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ color: "#3B82F6" }}
+                >
                 <DownloadIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Open in new tab">
-              <IconButton
-                component="a"
-                href={RESUME_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{ color: "#FFDB70" }}
-              >
-                <OpenInNewIcon />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Close">
-              <IconButton onClick={() => setOpen(false)} sx={{ color: "white" }}>
-                <CloseIcon />
-              </IconButton>
-            </Tooltip>
+              <Tooltip title="Open in new tab">
+                <IconButton
+                  component="a"
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{ color: "#3B82F6" }}
+                >
+                  <OpenInNewIcon />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Close">
+                <IconButton onClick={() => setOpen(false)} sx={{ color: "#64748B" }}>
+                  <CloseIcon />
+                </IconButton>
+              </Tooltip>
           </Box>
         </Box>
 
