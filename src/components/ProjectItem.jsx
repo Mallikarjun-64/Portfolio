@@ -43,8 +43,9 @@ function ProjectItem({ index, project }) {
   const buttonTextStyle = {
     textAlign: "center",
     fontSize: "0.6rem",
-    color: "white",
+    color: "#475569", // slate-600
     marginTop: "0.5rem",
+    fontWeight: "bold",
   };
 
   const settings = {
