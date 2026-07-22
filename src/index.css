@@ -330,7 +330,7 @@ article.active {
 
 main {
   margin: 15px 12px;
-  margin-bottom: 75px;
+  margin-bottom: 120px;
   min-width: 259px;
 }
 
@@ -401,11 +401,7 @@ main {
   border: 1px solid var(--border-gradient-onyx);
 }
 
-.info_more-btn:hover,
-.info_more-btn:focus { background: var(--bg-gradient-yellow-1); color: white; }
 
-.info_more-btn:hover::before,
-.info_more-btn:focus::before { background: var(--bg-gradient-yellow-2); }
 
 .info_more-btn span { display: none; }
 
@@ -1265,7 +1261,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn ion-icon { font-size: 16px; }
 
-.form-btn:hover { background: var(--bg-gradient-yellow-1); }
+.form-btn:hover { background: var(--bg-gradient-yellow-1); color: var(--smoky-black); }
 
 .form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
 
