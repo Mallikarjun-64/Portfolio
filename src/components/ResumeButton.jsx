@@ -26,17 +26,17 @@ function ResumeButton() {
         variant="outlined"
         size="large"
         sx={{
-          color: "#3B82F6",
+          color: "var(--orange-yellow-crayola)",
           width: { xs: "100%", md: "15rem" },
           margin: "0 0 2rem 0",
           fontWeight: "bold",
           textTransform: "capitalize",
           borderRadius: "1rem",
           cursor: "pointer",
-          border: "1px solid #3B82F6",
+          border: "1px solid var(--orange-yellow-crayola)",
           "&:hover": {
-            backgroundColor: "#EFF6FF",
-            borderColor: "#2563EB",
+            backgroundColor: "var(--bg-gradient-jet)",
+            borderColor: "var(--orange-yellow-crayola)",
           }
         }}
       >
@@ -51,16 +51,16 @@ function ResumeButton() {
         PaperProps={{
           style: {
             borderRadius: "1.2rem",
-            background: "rgba(255, 255, 255, 0.95)",
+            background: "var(--bg-gradient-onyx)",
             backdropFilter: "blur(20px)",
             overflow: "hidden",
-            boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+            boxShadow: "var(--shadow-2)",
           },
         }}
         BackdropProps={{
           style: {
             backdropFilter: "blur(4px)",
-            backgroundColor: "rgba(255,255,255,0.4)",
+            backgroundColor: "var(--jet)",
           },
         }}
       >
@@ -76,7 +76,7 @@ function ResumeButton() {
         >
             <Typography
               sx={{
-                color: "#1E293B",
+                color: "var(--white-2)",
                 fontWeight: "bold",
                 fontFamily: "poppins",
                 fontSize: "1.2rem",
@@ -92,7 +92,7 @@ function ResumeButton() {
                   download="Mallikarjun_Kadagoudra_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ color: "#3B82F6" }}
+                  sx={{ color: "var(--orange-yellow-crayola)" }}
                 >
                 <DownloadIcon />
               </IconButton>
@@ -103,13 +103,13 @@ function ResumeButton() {
                   href={RESUME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ color: "#3B82F6" }}
+                  sx={{ color: "var(--orange-yellow-crayola)" }}
                 >
                   <OpenInNewIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Close">
-                <IconButton onClick={() => setOpen(false)} sx={{ color: "#64748B" }}>
+                <IconButton onClick={() => setOpen(false)} sx={{ color: "var(--light-gray)" }}>
                   <CloseIcon />
                 </IconButton>
               </Tooltip>

@@ -1,6 +1,8 @@
 import React from "react";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
-function Navbar({ activeSection, setActiveSection }) {
+function Navbar({ activeSection, setActiveSection, theme, toggleTheme }) {
   return (
     <nav className="navbar">
       <ul className="navbar-list">
@@ -62,6 +64,12 @@ function Navbar({ activeSection, setActiveSection }) {
             onClick={() => setActiveSection("Contact")}
           >
             Contact
+          </button>
+        </li>
+
+        <li className="navbar-item">
+          <button className="navbar-link" onClick={toggleTheme}>
+            {theme === "light" ? <DarkModeIcon fontSize="small" /> : <LightModeIcon fontSize="small" />}
           </button>
         </li>
       </ul>

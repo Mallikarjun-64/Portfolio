@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 import SideBar from "./pages/Sidebar";
 import Navbar from "./pages/Navbar";
@@ -10,6 +10,15 @@ import Contact from "./pages/Contact";
 
 function App() {
   const [activeSection, setActiveSection] = useState("About");
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <>
@@ -19,6 +28,8 @@ function App() {
           <Navbar
             activeSection={activeSection}
             setActiveSection={setActiveSection}
+            theme={theme}
+            toggleTheme={toggleTheme}
           />
           {activeSection === "About" && <About />}
           {activeSection === "Skills" && <Skills />}

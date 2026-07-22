@@ -32,8 +32,8 @@
   --smoky-black: #E2E8F0; /* Soft slate gray background to make white glass cards pop */
   --white-1: #0F172A;
   --white-2: #1E293B;
-  --orange-yellow-crayola: #0ea5e9;
-  --vegas-gold: #6366f1;
+  --orange-yellow-crayola: #0F172A;
+  --vegas-gold: #1E293B;
   --light-gray: #475569;
   --light-gray-70: #64748B;
   --bittersweet-shimmer: #ef4444;
@@ -78,6 +78,39 @@
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease-in-out;
 
+}
+
+[data-theme="dark"] {
+  --bg-gradient-onyx: rgba(30, 30, 32, 0.7);
+  --bg-gradient-jet: rgba(40, 40, 42, 0.5);
+  --bg-gradient-yellow-1: #FFFFFF;
+  --bg-gradient-yellow-2: #F8FAFC;
+  --text-gradient-yellow: #FFFFFF;
+  --border-gradient-onyx: rgba(255, 255, 255, 0.1);
+  
+  --mesh-bg: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%),
+    #111111;
+
+  --jet: rgba(255, 255, 255, 0.1);
+  --onyx: rgba(20, 20, 22, 0.8);
+  --eerie-black-1: rgba(20, 20, 22, 0.7);
+  --eerie-black-2: rgba(30, 30, 32, 0.65);
+  --smoky-black: var(--mesh-bg);
+  --white-1: #E2E8F0;
+  --white-2: #F8FAFC;
+  --orange-yellow-crayola: #FFFFFF;
+  --vegas-gold: #F8FAFC;
+  --light-gray: #94A3B8;
+  --light-gray-70: #CBD5E1;
+
+  --shadow-1: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+  --shadow-2: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+  --shadow-3: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+  --shadow-4: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+  --shadow-5: 0 35px 60px -15px rgb(0 0 0 / 0.7);
 }
 
 
@@ -269,7 +302,7 @@ article.active {
 
 .content-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--bg-gradient-onyx);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-gradient-onyx);
@@ -451,7 +484,7 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--bg-gradient-onyx);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-gradient-onyx);
@@ -517,7 +550,7 @@ main {
 
 .service-item {
   position: relative;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--bg-gradient-onyx);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-gradient-onyx);
@@ -937,7 +970,7 @@ main {
 .project-item.active {
   display: block;
   animation: scaleUp 0.25s ease forwards;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--bg-gradient-onyx);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-gradient-onyx);
@@ -1175,7 +1208,7 @@ main {
 }
 
 .form-input {
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--eerie-black-1);
   color: var(--white-2);
   font-size: var(--fs-6);
   font-weight: var(--fw-400);
@@ -1938,12 +1971,20 @@ textarea.form-input::-webkit-resizer { display: none; }
   overflow: hidden;
   height: 7em;
   width: 7em;
-  padding: 1.5em;
-  background: var(--border-gradient-onyx);
-  padding: 20px;
+  background: var(--bg-gradient-onyx);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-gradient-onyx);
+  padding: 15px;
   border-radius: 14px;
   box-shadow: var(--shadow-2);
   display: grid;
+  transition: var(--transition-2);
+}
+
+.skillBox .skill:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-4);
 }
 .skillBox .skill img {
   height: 100%;
