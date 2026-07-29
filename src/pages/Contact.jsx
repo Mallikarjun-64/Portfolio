@@ -6,6 +6,8 @@ import {
   GitHub,
   LinkedIn,
 } from "@mui/icons-material";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
 
 function Contact() {
   const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
@@ -32,7 +34,7 @@ function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
@@ -50,32 +52,42 @@ function Contact() {
 
     setLoading(true);
 
-    const emailData = {
-      ...formData,
-      from_name: "Portfolio Website",
-      user_email: formData.email,
-    };
+    try {
+      // 1. Save to Firebase
+      await addDoc(collection(db, "messages"), {
+        fullname: formData.fullname,
+        email: formData.email,
+        message: formData.message,
+        timestamp: serverTimestamp(),
+      });
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, emailData, USER_ID).then(
-      (result) => {
-        setLoading(false);
-        setFormData({ fullname: "", email: "", message: "" });
-        setSnackbar({
-          open: true,
-          message: "Message sent successfully!",
-          severity: "success",
-        }); // Show success toast
-      },
-      (error) => {
-        console.error("Failed to send email.", error.text);
-        setLoading(false);
-        setSnackbar({
-          open: true,
-          message: "Failed to send message. Try again later.",
-          severity: "error",
-        }); // Show error toast
+      // 2. Send email via EmailJS (if configured)
+      const emailData = {
+        ...formData,
+        from_name: "Portfolio Website",
+        user_email: formData.email,
+      };
+
+      if (SERVICE_ID && TEMPLATE_ID && USER_ID) {
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, emailData, USER_ID);
       }
-    );
+
+      setFormData({ fullname: "", email: "", message: "" });
+      setSnackbar({
+        open: true,
+        message: "Message sent successfully!",
+        severity: "success",
+      }); // Show success toast
+    } catch (error) {
+      console.error("Failed to send message.", error);
+      setSnackbar({
+        open: true,
+        message: "Failed to send message. Try again later.",
+        severity: "error",
+      }); // Show error toast
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
